@@ -1,0 +1,41 @@
+#mapZoomGroup{
+	width: 3em;
+	display: inline-block;
+	position: absolute;
+	top: 26.5em;
+	right: 0.5em;
+	opacity: .5;
+	transform: translateX(5em);
+	transition: .3s ease-out;
+}
+
+.mapReady #mapZoomGroup{
+	transform: translateX(0);
+}
+
+#mapIn, #mapOut, #mapMan{
+	display: block;
+	padding: 1em;
+	background-color: white;
+	color: black;
+	border: 1px solid #aaa;
+	background-size: 75%;
+}
+
+#mapOut{
+	background: white url(../img/horizontal.svg) center no-repeat;
+	background-size: 75%;
+	border-top: 0;
+}
+
+#mapIn{
+	background: white url(../img/add.svg) center no-repeat;
+	background-size: 75%;
+}
+
+#mapMan{
+	background: white url(../img/circumference.svg) center no-repeat;
+	background-size: 50%;
+	border-top: 0;
+	padding: .75em 1em;
+}

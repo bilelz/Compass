@@ -1,0 +1,118 @@
+
+#getGeo{
+    background: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 3em;
+    cursor: pointer;
+    color: black;
+    width: 3em;
+    height: 3em;
+    font-size: 1.2em;
+    position: relative;
+    top: 1em;
+    left: 50%;
+    box-shadow: 0 .1em .25em gray;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26); /*http://www.google.com/design/*/
+    margin-left: -1.5em;
+    margin-bottom: 1.5em;
+
+
+}
+
+.notready #getGeo{
+     -webkit-transform: translateY(20em) !important;
+            transform: translateY(20em) !important;
+  -webkit-animation-play-state: running !important;
+            animation-play-state: running !important;
+}
+
+.ready #getGeo{
+     -webkit-animation: bounceInUp 1s !important;
+            animation: bounceInUp 1s !important;
+  -webkit-animation-play-state: running !important;
+            animation-play-state: running !important;
+        
+}
+
+#getGeo i{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.svg-search-globe{
+        margin: .25em;
+padding: .25em 0 0 .25em; 
+}
+
+#search{
+    position: absolute;
+top: 0em;
+z-index: 5;
+left: 0;
+margin: 0;
+padding: 0;
+width: 100%;
+-webkit-transform : translateY(-5em);
+transform : translateY(-5em);
+
+-webkit-transition : .3s ease-out;
+transition : .3s ease-out;
+}
+
+#search.show{
+-webkit-transform : translateY(0);
+transform : translateY(0);
+}
+
+#searchLocation, #hideSearch, #searchIcon{
+    position: absolute;
+	right: 2.5em;
+	top: 0;
+	background: transparent;
+	border: none;
+	padding: .5em .25em;
+	margin: 0;
+	cursor: pointer;
+}
+
+#searchIcon{
+	left: 0;
+	right: initial;
+}
+#hideSearch{
+	right: 0;
+}
+
+#search img{
+    width: 1em;
+	height: 1em;
+	font-size: 2em;
+	opacity: .5;
+}
+
+input[type=search]{
+    border: 1px solid #ddd;
+height: 3em;
+padding: .5em 6em .5em 2.5em;
+border-radius: .2em;
+box-shadow: 0 0.1em .1em #aaa;
+width: 100%;
+margin: 0;
+-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.pac-container, .pac-item {
+	font-size: 1.2em;
+}
+
+.pac-item-query {
+	font-size: 1em;
+}
+
+.pac-icon {
+	margin-top: 3px;
+	margin-left: 6px;
+}

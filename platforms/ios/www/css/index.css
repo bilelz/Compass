@@ -1,0 +1,470 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+ @import url(http://fonts.googleapis.com/css?family=Roboto:100);
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-font-smoothing: antialiased;
+    outline: 0;
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: #3f4c6b;
+     background-color: #4DB6AC;
+    color : #fff;
+    font-family:  'Helvetica Neue Thin',HelveticaNeue-Thin,'helvetica neue',helvetica,arial;
+    font-family: 'Roboto', sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0;
+    padding: 0;
+    width:100%;
+   // overflow: hidden;
+}
+
+#compass{
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    
+    -webkit-transition: 0.3s linear; 
+            transition: 0.3s linear;
+    height: 20em;
+    width: 20em;
+    margin: 5em auto;
+    position: relative;
+    z-index: 1;
+}
+
+#ring{
+    display: block;
+    height: 100%;
+    width: 100%;
+    //border: 1em solid black;
+    border-radius: 50%;
+    
+
+    position : relative;
+    -webkit-transition: 0.3s linear; 
+            transition: 0.3s linear;
+    -webkit-transform: rotate(-90deg) scale(1);
+            transform: rotate(-90deg) scale(1);
+/*
+
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+
+     -webkit-transform: rotate(-90deg) scale(10);
+             transform: rotate(-90deg) scale(10);
+    */
+/*    
+
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  */   
+}
+
+.ready #ring{
+     -webkit-animation: bounceMe 1s !important;
+            animation: bounceMe 1s !important;
+  -webkit-animation-play-state: running !important;
+            animation-play-state: running !important;
+
+    -webkit-transform: rotate(-90deg) scale(1);
+             transform: rotate(-90deg) scale(1);
+}
+
+
+
+
+#north{
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 1em;
+    width: 10em;
+    background: gray;
+
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+
+    -webkit-transition: 0.3s linear; 
+            transition: 0.3s linear;
+    margin-left: -.5em;
+}
+
+
+#ring > span{
+    position: absolute;
+    width: 1em;
+    height: .1em;
+    background: black;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: rotate(0deg) translateX(15em);
+            transform: rotate(0deg) translateX(15em);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+}
+/*
+#ring > :nth-child(1):before,
+#ring > :nth-child(45):before,
+#ring > :nth-child(90):before,
+#ring > :nth-child(135):before {
+    content: 'N';
+    font-size: 2em;
+    color: salmon;
+    left: 1em;
+    top: -.5em;
+    position: absolute;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+}
+
+*/
+
+#ring  .compassNumber{
+    display: none;
+}
+
+
+
+#ring > :nth-child(1),
+#ring > :nth-child(16),
+#ring > :nth-child(31),
+#ring > :nth-child(46),
+#ring > :nth-child(61),
+#ring > :nth-child(76),
+#ring > :nth-child(91),
+#ring > :nth-child(106),
+#ring > :nth-child(121),
+#ring > :nth-child(136),
+#ring > :nth-child(151),
+#ring > :nth-child(166){
+    width: 1.5em;
+    background: rgba(0, 0, 0, 1);
+}
+
+#ring > :nth-child(1) .compassNumber,
+#ring > :nth-child(16) .compassNumber,
+#ring > :nth-child(31) .compassNumber,
+#ring > :nth-child(46) .compassNumber,
+#ring > :nth-child(61) .compassNumber,
+#ring > :nth-child(76) .compassNumber,
+#ring > :nth-child(91) .compassNumber,
+#ring > :nth-child(106) .compassNumber,
+#ring > :nth-child(121) .compassNumber,
+#ring > :nth-child(136) .compassNumber,
+#ring > :nth-child(151) .compassNumber,
+#ring > :nth-child(166) .compassNumber{
+    font-size: 1em;
+    color: black;
+    left: -1.75em;
+    top: -0.5em;
+    position: absolute;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    text-align: center;
+    display: block;
+    width: 2em;
+}
+
+#ring > :nth-child(1),
+#ring > :nth-child(46),
+#ring > :nth-child(91) ,
+#ring > :nth-child(136) {
+    background: salmon;
+}
+
+#ring > :nth-child(1) .compassNumber,
+#ring > :nth-child(46) .compassNumber,
+#ring > :nth-child(91) .compassNumber,
+#ring > :nth-child(136) .compassNumber{
+    font-size: 1.5em; 
+    //color: red;
+}
+
+
+#ring > :nth-child(1){
+   width: 1em;
+}
+
+#ring > :nth-child(1) .compassNumber{
+   color : red;
+}
+
+#ring > :nth-child(1):after  {
+    top: -0.45em;
+    left: .75em;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 1em 1em 1em;
+    border-color: transparent transparent salmon transparent;
+    content: '';
+    color: white;
+    text-indent: -.35em;
+    font-size: .9em;
+    line-height: 2em;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+
+
+
+
+
+#info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: black;
+    height: 100%;
+   -webkit-transition: 0.3s linear; 
+            transition: 0.3s linear;
+    transform: rotate(0deg);
+    transform-origin: center;
+}
+
+#headingNumber{
+    margin-top: 4em;
+    font-size: 3em;
+}
+
+#qiblaInfo{
+    margin-top: 7em;
+    display: none;
+}
+
+/*
+#headingNumber{
+    text-align: center;
+    color: black;
+    display: block;
+    font-size: 4em;
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 5em;
+    width: 100%;
+    transition: .2s linear;
+    transform: rotate(0deg);
+    transform-origin: center;
+}*/
+
+
+#geoMap{
+   
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 33em;
+    overflow: hidden;
+    box-shadow: 0 0em 1em rgba(0, 0, 0, 0.5)
+}
+
+#geoMapInner{
+   position: relative;
+    background: #E9E5DC center center no-repeat;
+    background-size: 100%;
+    height: 200%;
+    width: 200%;
+    /* transform: rotate(149deg); */
+    transform-origin: center;
+    -webkit-transition: 0.3s linear; 
+        transition: 0.3s linear;
+ 
+    top: -54%%;
+    left: -50%;
+}
+
+#geoCity{
+    text-align: center;
+    color : white;
+    text-decoration: none;
+    display: block;
+}
+
+#geo img{
+    max-width: 100%;
+    margin:0;
+    padding: 0;
+}
+
+#geoLocality, #geoCountry{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#geoCountry{
+    opacity: .3;
+}
+
+
+#qibla{
+    display: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20em 1em 0 1em;
+    border-color: rgba(77, 182, 172, 0.5) transparent transparent transparent;
+    position: absolute;
+    top: -10em;
+    left: 9em;
+    white-space: nowrap;
+    -webkit-transition: 0.3s linear; 
+            transition: 0.3s linear;
+ 
+    -webkit-transform-origin: 1em 20em;
+            transform-origin: 1em 20em;
+}
+
+
+/*
+#qiblaInfo{
+    position: absolute;
+    top: 5em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: black;
+}*/
+
+/* Portrait layout (default) */
+.app {
+    text-align:center;
+     margin: 0;
+    padding: 0;
+}
+
+#center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 5em;
+    color: black;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    margin-left: -1em;
+    line-height: 1.75em;
+    margin-top: -1em;
+    padding: 0em;
+    vertical-align: top;
+    transform: rotate(0);
+    transform-origin: center;
+   -webkit-transition: 0.3s linear; 
+            transition: 0.3s linear;
+ 
+}
+
+#center img{
+    width: 0.5em;
+    margin-top: -.25em;
+
+}
+
+.notready #center{
+    opacity: 0;
+}
+
+
+.ready #center{
+    opacity: 0.5;
+}
+
+
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+#deviceready{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    margin: 0;
+    padding: 0;
+    font-size:12px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:inline-block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+/*
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+*/
+
+.btn{
+    background: white;
+    color: black;
+    margin: 1em;
+    border-radius: 3em;
+    padding: 1em;
+}
+
+img{
+    vertical-align: middle;
+}
+input[type=range], input[type=search]{
+    width: 90%;
+    margin: 1em 5%;
+}

@@ -1,0 +1,121 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'ios-deploy' ]
+2 info using npm@1.3.14
+3 info using node@v0.10.22
+4 verbose cache add [ 'ios-deploy', null ]
+5 verbose cache add name=undefined spec="ios-deploy" args=["ios-deploy",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'ios-deploy',
+6 verbose parsed url   path: 'ios-deploy',
+6 verbose parsed url   href: 'ios-deploy' }
+7 silly lockFile 69149c11-ios-deploy ios-deploy
+8 verbose lock ios-deploy /Users/bilelz/.npm/69149c11-ios-deploy.lock
+9 silly lockFile 69149c11-ios-deploy ios-deploy
+10 silly lockFile 69149c11-ios-deploy ios-deploy
+11 verbose addNamed [ 'ios-deploy', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 9c508a6b-ios-deploy ios-deploy@
+14 verbose lock ios-deploy@ /Users/bilelz/.npm/9c508a6b-ios-deploy.lock
+15 silly addNameRange { name: 'ios-deploy', range: '*', hasData: false }
+16 verbose url raw ios-deploy
+17 verbose url resolving [ 'https://registry.npmjs.org/', './ios-deploy' ]
+18 verbose url resolved https://registry.npmjs.org/ios-deploy
+19 info trying registry request attempt 1 at 22:36:06
+20 verbose etag "12QITUN1SGDUUNNC3XF3WS0LM"
+21 http GET https://registry.npmjs.org/ios-deploy
+22 http 304 https://registry.npmjs.org/ios-deploy
+23 silly registry.get cb [ 304,
+23 silly registry.get   { date: 'Wed, 01 Oct 2014 20:36:06 GMT',
+23 silly registry.get     server: 'Apache',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'last-modified': 'Wed, 01 Oct 2014 20:36:07 GMT',
+23 silly registry.get     'cache-control': 'max-age=60',
+23 silly registry.get     etag: '"12QITUN1SGDUUNNC3XF3WS0LM"',
+23 silly registry.get     'x-served-by': 'cache-fra1227-FRA',
+23 silly registry.get     'x-cache': 'HIT',
+23 silly registry.get     'x-cache-hits': '1',
+23 silly registry.get     'x-timer': 'S1412195766.958422,VS0,VE105',
+23 silly registry.get     vary: 'Accept',
+23 silly registry.get     'content-length': '0',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 verbose etag ios-deploy from cache
+25 silly addNameRange number 2 { name: 'ios-deploy', range: '*', hasData: true }
+26 silly addNameRange versions [ 'ios-deploy',
+26 silly addNameRange   [ '1.0.1',
+26 silly addNameRange     '1.0.2',
+26 silly addNameRange     '1.0.3',
+26 silly addNameRange     '1.0.4',
+26 silly addNameRange     '1.0.5',
+26 silly addNameRange     '1.0.6',
+26 silly addNameRange     '1.0.7',
+26 silly addNameRange     '1.0.8',
+26 silly addNameRange     '1.0.9',
+26 silly addNameRange     '1.1.0' ] ]
+27 verbose addNamed [ 'ios-deploy', '1.1.0' ]
+28 verbose addNamed [ '1.1.0', '1.1.0' ]
+29 silly lockFile 322bbb98-ios-deploy-1-1-0 ios-deploy@1.1.0
+30 verbose lock ios-deploy@1.1.0 /Users/bilelz/.npm/322bbb98-ios-deploy-1-1-0.lock
+31 silly lockFile 322bbb98-ios-deploy-1-1-0 ios-deploy@1.1.0
+32 silly lockFile 322bbb98-ios-deploy-1-1-0 ios-deploy@1.1.0
+33 silly lockFile 9c508a6b-ios-deploy ios-deploy@
+34 silly lockFile 9c508a6b-ios-deploy ios-deploy@
+35 silly resolved [ { name: 'ios-deploy',
+35 silly resolved     version: '1.1.0',
+35 silly resolved     description: 'launch iOS apps iOS devices from the command line (Xcode 5)',
+35 silly resolved     main: 'ios-deploy',
+35 silly resolved     scripts: { preinstall: 'make ios-deploy' },
+35 silly resolved     bin: { 'ios-deploy': './ios-deploy' },
+35 silly resolved     repository: { type: 'git', url: 'https://github.com/phonegap/ios-deploy' },
+35 silly resolved     keywords: [ 'ios-deploy', 'deploy to iOS device' ],
+35 silly resolved     author: { name: 'Greg Hughes' },
+35 silly resolved     license: 'GPLv3',
+35 silly resolved     readme: 'ios-deploy\n==========\nInstall and debug iPhone apps without using Xcode. Designed to work on unjailbroken devices.\n\n## Requirements\n\n* Mac OS X. Tested on Snow Leopard only.\n* You need to have a valid iPhone development certificate installed.\n* Xcode must be installed, along with the SDK for your iOS version.\n\n## Usage\n\n\tUsage: ./ios-deploy [OPTION]...\n\t  -d, --debug                  launch the app in GDB after installation\n\t  -i, --id <device_id>         the id of the device to connect to\n\t  -c, --detect                 only detect if the device is connected\n\t  -b, --bundle <bundle.app>    the path to the app bundle to be installed\n\t  -a, --args <args>            command line arguments to pass to the app when launching it\n\t  -t, --timeout <timeout>      number of seconds to wait for a device to be connected\n\t  -u, --unbuffered             don\'t buffer stdout\n\t  -g, --gdbargs <args>         extra arguments to pass to GDB when starting the debugger\n\t  -x, --gdbexec <file>         GDB commands script file\n\t  -n, --nostart                do not start the app when debugging\n\t  -I, --noninteractive         start in non interactive mode (quit when app crashes or exits)\n\t  -L, --justlaunch             just launch the app and exit lldb\n\t  -v, --verbose                enable verbose output\n\t  -m, --noinstall              directly start debugging without app install (-d not required)\n\t  -p, --port <number>          port used for device, default: 12345 \n\t  -r, --uninstall              uninstall the app before install (do not use with -m; app cache and data are cleared) \n\t  -1, --bundle_id <bundle id>  specify bundle id for list and upload\n\t  -l, --list                   list files\n\t  -o, --upload <file>          upload file\n\t  -2, --to <target pathname>\tuse together with upload file. specify target for upload\n\t  -V, --version                print the executable version\n\t  \n## Demo\n\n* The included demo.app represents the minimum required to get code running on iOS.\n* `make install` will install demo.app to the device.\n* `make debug` will install demo.app and launch a GDB session.\n\n## Notes\n\n* With some modifications, it may be possible to use this without Xcode installed; however, you would need a copy of the relevant DeveloperDiskImage.dmg (included with Xcode). GDB would also run slower as symbols would be downloaded from the device on-the-fly.\n\n\n## Listing Device Ids\n\nDevice Ids are the UDIDs of the iOS devices. From the command line, you can list device ids [this way](http://javierhz.blogspot.com/2012/06/how-to-get-udid-of-iphone-using-shell.html):\n\n        system_profiler SPUSBDataType | sed -n -e \'/iPad/,/Serial/p\' -e \'/iPhone/,/Serial/p\' | grep "Serial Number:" | awk -F ": " \'{print $2}\'\n',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     bugs: { url: 'https://github.com/phonegap/ios-deploy/issues' },
+35 silly resolved     homepage: 'https://github.com/phonegap/ios-deploy',
+35 silly resolved     _id: 'ios-deploy@1.1.0',
+35 silly resolved     _from: 'ios-deploy@' } ]
+36 info install ios-deploy@1.1.0 into /usr/local/lib
+37 info installOne ios-deploy@1.1.0
+38 info /usr/local/lib/node_modules/ios-deploy unbuild
+39 info preuninstall ios-deploy@1.1.0
+40 info uninstall ios-deploy@1.1.0
+41 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild ios-deploy@1.1.0
+42 verbose /usr/local/bin,[object Object] binRoot
+43 info postuninstall ios-deploy@1.1.0
+44 info /usr/local/lib/node_modules/ios-deploy unbuild
+45 info preuninstall ios-deploy@1.1.0
+46 info uninstall ios-deploy@1.1.0
+47 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild ios-deploy@1.1.0
+48 verbose /usr/local/bin,[object Object] binRoot
+49 info postuninstall ios-deploy@1.1.0
+50 error error rolling back Error: EACCES, unlink '/usr/local/lib/node_modules/ios-deploy'
+50 error error rolling back  ios-deploy@1.1.0 { [Error: EACCES, unlink '/usr/local/lib/node_modules/ios-deploy']
+50 error error rolling back   errno: 3,
+50 error error rolling back   code: 'EACCES',
+50 error error rolling back   path: '/usr/local/lib/node_modules/ios-deploy' }
+51 error Error: EACCES, unlink '/usr/local/lib/node_modules/ios-deploy'
+51 error  { [Error: EACCES, unlink '/usr/local/lib/node_modules/ios-deploy']
+51 error   errno: 3,
+51 error   code: 'EACCES',
+51 error   path: '/usr/local/lib/node_modules/ios-deploy' }
+52 error Please try running this command again as root/Administrator.
+53 error System Darwin 13.4.0
+54 error command "node" "/usr/local/bin/npm" "install" "-g" "ios-deploy"
+55 error cwd /Users/bilelz/Documents/workspace/cordova/qibla
+56 error node -v v0.10.22
+57 error npm -v 1.3.14
+58 error path /usr/local/lib/node_modules/ios-deploy
+59 error code EACCES
+60 error errno 3
+61 error stack Error: EACCES, unlink '/usr/local/lib/node_modules/ios-deploy'
+62 verbose exit [ 3, true ]
