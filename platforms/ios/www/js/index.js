@@ -68,6 +68,11 @@ var app = {
                 map.setZoom(map.getZoom()+1);
         };
 
+        document.getElementById('mapSat').onclick = function() {
+                map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+
+        };
+
 
     },
     // Bind Event Listeners

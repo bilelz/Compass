@@ -17,6 +17,7 @@
  * under the License.
  */
 var geocoder;
+var mapType = "ROADMAP";
 var app = {
     // Application Constructor
     initialize: function() {
@@ -69,8 +70,13 @@ var app = {
         };
 
         document.getElementById('mapSat').onclick = function() {
-                map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
-
+            if(mapType == "ROADMAP"){
+                map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+                mapType = "SATELLITE";
+            }else{
+                map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+                mapType = "ROADMAP";
+            }
         };
 
 
