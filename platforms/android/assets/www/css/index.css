@@ -256,8 +256,19 @@ body {
 }
 
 #qiblaInfo{
-    margin-top: 7em;
+    //margin-top: 7em;
     display: none;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+
+}
+
+#qiblaInfo img{
+    height: 1.5em;
+    opacity: .75;
+    vertical-align: text-bottom;
 }
 
 /*
@@ -309,6 +320,12 @@ body {
     color : white;
     text-decoration: none;
     display: block;
+    font-size: 1.2em;
+}
+
+#geoCity img{
+    height: 2em;
+    vertical-align: text-bottom;
 }
 
 #geo img{

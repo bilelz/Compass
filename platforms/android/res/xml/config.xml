@@ -14,12 +14,12 @@
     <feature name="Compass">
         <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
     </feature>
-    <name>HelloWorld</name>
+    <name>Qompass</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="bilelz+qompass@gmail.com" href="http://bilelz.fr">
+        bilelz
     </author>
     <content src="index.html" />
     <access origin="*" />

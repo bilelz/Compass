@@ -4,12 +4,12 @@
 	position: absolute;
 	top: 26.5em;
 	right: 0.5em;
-	opacity: .5;
+	opacity: .75;
 	transform: translateX(5em);
 	transition: .3s ease-out;
 }
 
-.mapReady #mapZoomGroup{
+.mapReady #mapZoomGroup, .mapReady #mapSat{
 	transform: translateX(0);
 }
 
@@ -38,4 +38,26 @@
 	background-size: 50%;
 	border-top: 0;
 	padding: .75em 1em;
+}
+
+#mapSat{
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid #aaa;
+	display: inline-block;
+	border-radius: 3em;
+	padding: .5em;
+	opacity: .75;
+	position: absolute;
+	top: 27.5em;
+	left: 0.5em;
+	transform: translateX(-5em);
+	transition: .3s ease-out;
+}
+
+#mapSat:hover, #mapZoomGroup:hover{
+	opacity: 1;
+}
+
+#mapSat img{
+	height: 3em;
 }

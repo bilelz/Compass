@@ -55,8 +55,10 @@
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/info.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/kabah.png \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/kabah.svg \
+/Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/landscape10.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/logo.png \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/man.svg \
+/Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/map103.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/mapperson.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/plus.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/plusr.svg \
