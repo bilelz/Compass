@@ -39,10 +39,13 @@
             <div id="info">
                 <div id="headingNumber"></div>            
             
-                <div id="qiblaInfo"><span id="qiblaNumber"></span> <img src="img/kabah.svg" alt="Kaaba"> <span id="qiblaDistance"></span></div>
+                
             </div>
             
-            <div id="qibla"></div>
+             <div id="qibla">
+                <img src="img/kabah.svg" alt="Kaaba"/>
+            </div>
+           
             
         </div>
 
@@ -52,10 +55,13 @@
    </div>
        <button id="getGeo" title="Search"><img src="img/search.svg" alt="Search" class="svg-search-globe"></button>
 
-        <a href="geo:" id="geoCity">
+        <span id="geoCity">
                 <span id="geoLocality">Active your GPS</span>&nbsp;<span id="geoCountry">please</span>
-        </a>
+        </span>
 
+        <div id="qiblaInfo">
+            <span id="qiblaNumber"></span>  &nbsp;<img src="img/kabah.svg" alt="Kaaba">&nbsp; <span id="qiblaDistance"></span>
+        </div>
     
 
         <div id="search">
@@ -67,16 +73,16 @@
         
         <div id="mapZoomGroup">
             <div id="mapIn"></div>
-            <div id="mapMan"></div>
             <div id="mapOut"></div>
         </div>
-<div id="mapSat">SAT</div>
+
+        <div id="mapSat"><img src="img/landscape10.svg" alt="Satellite" title="Satellite/Map"/></div>
 
 	
 		<br/><br/><br/><br/>
             <span id="deviceready" class="blink">
                 <span class="event listening">Connecting to Device</span>
-                <span class="event received">Device is Ready</span>
+                <span class="event received"><!--Device is Ready--></span>
          </span>
 
 		<div id="heading"></div>

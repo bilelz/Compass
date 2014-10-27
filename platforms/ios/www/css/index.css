@@ -17,7 +17,7 @@
  * under the License.
  */
  @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
- @import url(http://fonts.googleapis.com/css?family=Roboto:100);
+ @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
@@ -31,7 +31,8 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color: #3f4c6b;
      background-color: #4DB6AC;
-    color : #fff;
+    background-color: #03A9F4;
+    color : #ffffff;
     font-family:  'Helvetica Neue Thin',HelveticaNeue-Thin,'helvetica neue',helvetica,arial;
     font-family: 'Roboto', sans-serif;
     font-size:12px;
@@ -39,7 +40,7 @@ body {
     margin:0;
     padding: 0;
     width:100%;
-   // overflow: hidden;
+    overflow: hidden;
 }
 
 #compass{
@@ -53,6 +54,12 @@ body {
     margin: 5em auto;
     position: relative;
     z-index: 1;
+    border-radius: 11em;
+    box-shadow: 0 0 13em white, inset 0 0 13em white;
+}
+
+.mapSat #compass{
+    box-shadow: 0 0 13em black, inset 0 0 13em black;
 }
 
 #ring{
@@ -61,6 +68,7 @@ body {
     width: 100%;
     //border: 1em solid black;
     border-radius: 50%;
+    z-index: 2;
     
 
     position : relative;
@@ -126,6 +134,11 @@ body {
             transform: rotate(0deg) translateX(15em);
     -webkit-transform-origin: 0 0;
             transform-origin: 0 0;
+}
+
+
+.mapSat #ring > span{
+    background: white;
 }
 /*
 #ring > :nth-child(1):before,
@@ -205,6 +218,10 @@ body {
     //color: red;
 }
 
+.mapSat #ring > span .compassNumber{
+    color: white;
+}
+
 
 #ring > :nth-child(1){
    width: 1em;
@@ -242,12 +259,16 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
-    color: black;
+    //color: black;
     height: 100%;
    -webkit-transition: 0.3s linear; 
             transition: 0.3s linear;
     transform: rotate(0deg);
     transform-origin: center;
+}
+
+.mapSat #info{
+    color: white;
 }
 
 #headingNumber{
@@ -256,8 +277,21 @@ body {
 }
 
 #qiblaInfo{
-    margin-top: 7em;
+    //margin-top: 7em;
     display: none;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+    z-index: 1;
+    position: relative;
+
+}
+
+#qiblaInfo img{
+    height: 1.5em;
+    opacity: .75;
+    vertical-align: text-bottom;
 }
 
 /*
@@ -306,9 +340,17 @@ body {
 
 #geoCity{
     text-align: center;
-    color : white;
+    //color : white;
     text-decoration: none;
     display: block;
+    font-size: 1.2em;
+    z-index: 1;
+    position: relative;
+}
+
+#geoCity img{
+    height: 2em;
+    vertical-align: text-bottom;
 }
 
 #geo img{
@@ -332,19 +374,30 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 20em 1em 0 1em;
+    border-width: 30em 2em 0 2em;
     border-color: rgba(77, 182, 172, 0.5) transparent transparent transparent;
     position: absolute;
-    top: -10em;
-    left: 9em;
+    top: -20em;
+    left: 8em;
     white-space: nowrap;
-    -webkit-transition: 0.3s linear; 
+    z-index: 1;
+
+    -webkit-transition: 0.3s linear;
             transition: 0.3s linear;
- 
-    -webkit-transform-origin: 1em 20em;
-            transform-origin: 1em 20em;
+    
+    -webkit-transform-origin: 2em 30em;
+            transform-origin: 2em 30em;
 }
 
+.mapSat #qibla{
+    border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+}
+
+#qibla img{
+    position: absolute;
+    top: -14em;
+    left: -0.75em;
+}
 
 /*
 #qiblaInfo{

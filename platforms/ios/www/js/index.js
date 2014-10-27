@@ -17,6 +17,7 @@
  * under the License.
  */
 var geocoder;
+var mapType = "ROADMAP";
 var app = {
     // Application Constructor
     initialize: function() {
@@ -60,17 +61,25 @@ var app = {
                 map.setZoom(map.getZoom()-1);
         };
 
-        document.getElementById('mapMan').onclick = function() {
+        /*document.getElementById('mapMan').onclick = function() {
                 map.setZoom(16);
-        };
+        };*/
 
         document.getElementById('mapIn').onclick = function() {
                 map.setZoom(map.getZoom()+1);
         };
 
         document.getElementById('mapSat').onclick = function() {
-                map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+            if(mapType == "ROADMAP"){
+                map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+                mapType = "SATELLITE";
+                document.querySelector("body").classList.add('mapSat');
+            }else{
+                map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+                mapType = "ROADMAP";
+                document.querySelector("body").classList.remove('mapSat');
 
+            }
         };
 
 
@@ -104,7 +113,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         //receivedElement.setAttribute('style', 'display:inline-block;');
 
-        log('Received Event: ' + id);
+        //log('Received Event: ' + id);
     }
 };
 
@@ -247,11 +256,11 @@ function initializeMap(lat,lng) {
     // To add the marker to the map, call setMap();
     marker.setMap(map);
 
-  maxZoomService = new google.maps.MaxZoomService();
+  /*maxZoomService = new google.maps.MaxZoomService();
   maxZoomService.getMaxZoomAtLatLng(new google.maps.LatLng(lat,lng), 
                                         function(data){
                                             document.getElementById('mapZoom').max = data.zoom;
-                                    }); 
+                                    }); */
 
   //autocomplete
     autocomplete = new google.maps.places.Autocomplete(

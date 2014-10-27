@@ -5,7 +5,6 @@ var qiblaLat = 21.422515;
 var qiblaLng = 39.826175; 
 
 
-
 function setQibla(lat, lng){
 	//qibla
     var qibla = getQiblaDirectionV2(lat, lng);

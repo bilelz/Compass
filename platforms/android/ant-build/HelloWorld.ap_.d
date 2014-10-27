@@ -66,8 +66,10 @@
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/removeround.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/search.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/searching27.svg \
+/Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/Wood Grain.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/img/zoom.svg \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/js/index.js \
+/Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/js/map.js \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/js/qibla.js \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/js/search.js \
 /Users/bilelz/Documents/workspace/cordova/qibla/platforms/android/assets/www/plugins/org.apache.cordova.device \
