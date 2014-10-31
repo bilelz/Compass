@@ -71,7 +71,7 @@ var app = {
 
         document.getElementById('mapSat').onclick = function() {
             if(mapType == "ROADMAP"){
-                map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+                map.setMapTypeId(google.maps.MapTypeId.HYBRID);
                 mapType = "SATELLITE";
                 document.querySelector("body").classList.add('mapSat');
             }else{
@@ -237,8 +237,9 @@ function log(txt){
 
 var map, maxZoomService, autocomplete;
 function initializeMap(lat,lng) {
+    var zoomTmp = (map==undefined)?16:map.getZoom(); // keep current zoom if available
   var mapOptions = {
-    zoom: 16,
+    zoom: zoomTmp,
     center: new google.maps.LatLng(lat,lng),
     disableDefaultUI: true
   };
@@ -256,11 +257,14 @@ function initializeMap(lat,lng) {
     // To add the marker to the map, call setMap();
     marker.setMap(map);
 
-  /*maxZoomService = new google.maps.MaxZoomService();
+  maxZoomService = new google.maps.MaxZoomService();
   maxZoomService.getMaxZoomAtLatLng(new google.maps.LatLng(lat,lng), 
                                         function(data){
-                                            document.getElementById('mapZoom').max = data.zoom;
-                                    }); */
+                                            // test if current map has a good zoom
+                                            if(data.zoom < map.getZoom()){
+                                                map.setZoom(data.zoom);
+                                            }
+                                    }); 
 
   //autocomplete
     autocomplete = new google.maps.places.Autocomplete(

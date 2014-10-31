@@ -2,6 +2,7 @@ function onPlaceChanged() {
   var place = autocomplete.getPlace();
   if (place.geometry) {
     map.setCenter(place.geometry.location);
+    document.querySelector("body").classList.remove('mapSat');
     //map.setZoom(15);
     setQibla(place.geometry.location.lat(), place.geometry.location.lng());
     //formatted_address:

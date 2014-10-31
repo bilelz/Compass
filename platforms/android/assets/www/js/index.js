@@ -71,7 +71,7 @@ var app = {
 
         document.getElementById('mapSat').onclick = function() {
             if(mapType == "ROADMAP"){
-                map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+                map.setMapTypeId(google.maps.MapTypeId.HYBRID);
                 mapType = "SATELLITE";
                 document.querySelector("body").classList.add('mapSat');
             }else{
@@ -205,29 +205,7 @@ function setCityFromLatLng(lat,lng){
 
     initializeMap(lat,lng);
 
-    var latlng = new google.maps.LatLng(lat, lng);
-                        
-      geocoder.geocode({'latLng': latlng}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          if (results[0]) {
-            var arrAddress = results[0].address_components;
-
-            for (var index = 0; index < arrAddress.length; ++index) {
-                console.log(arrAddress[index]);
-                if (arrAddress[index].types[0] == "locality") {
-                    document.getElementById('geoLocality').innerHTML = arrAddress[index].long_name;
-                }
-                if (arrAddress[index].types[0] == "country") {
-                    document.getElementById('geoCountry').innerHTML = arrAddress[index].long_name;
-                }
-            }
-          } else {
-            log("No results found");
-          }
-        } else {
-          log("Geocoder failed due to: " + status);
-        }
-      });
+    getCityNameFromGPS(lat,lng);
 }
 
 function log(txt){
@@ -235,38 +213,3 @@ function log(txt){
     document.getElementById('log').innerHTML = txt+"<br/>"+document.getElementById('log').innerHTML;
 }
 
-var map, maxZoomService, autocomplete;
-function initializeMap(lat,lng) {
-  var mapOptions = {
-    zoom: 16,
-    center: new google.maps.LatLng(lat,lng),
-    disableDefaultUI: true
-  };
-
-  document.querySelector("body").classList.add('mapReady');
-
-  map = new google.maps.Map(document.getElementById('geoMapInner'), mapOptions);
-
-  var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(21.422515,39.826175),
-        title:"Mekkah!",
-        icon: 'img/kabah.png'
-    });
-
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
-
-  /*maxZoomService = new google.maps.MaxZoomService();
-  maxZoomService.getMaxZoomAtLatLng(new google.maps.LatLng(lat,lng), 
-                                        function(data){
-                                            document.getElementById('mapZoom').max = data.zoom;
-                                    }); */
-
-  //autocomplete
-    autocomplete = new google.maps.places.Autocomplete(
-      (document.getElementById('citySearch')),
-      {
-        types: ['(cities)']
-      });
-  google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-}

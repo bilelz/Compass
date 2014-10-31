@@ -10,13 +10,12 @@
     width: 3em;
     height: 3em;
     font-size: 1.2em;
-    position: relative;
-    top: 1em;
+    position: absolute;
+    bottom: 1em;
     left: 50%;
     box-shadow: 0 .1em .25em gray;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26); /*http://www.google.com/design/*/
     margin-left: -1.5em;
-    margin-bottom: 1.5em;
 	z-index: 1;
 
 
