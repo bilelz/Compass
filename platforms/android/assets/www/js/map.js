@@ -99,7 +99,7 @@ function onCenterChanged() {
       });
  }
 
-
+// https://developers.google.com/maps/documentation/javascript/examples/geometry-headings
  function updateGreatCircle(lat,lng) {
   var path = [new google.maps.LatLng(lat, lng), new google.maps.LatLng(qiblaLat, qiblaLng)];
   //poly.setPath(path);

@@ -18,6 +18,13 @@ function onPlaceChanged() {
 }
 
 function hideSearch(){
+	seaching = false;
+	document.querySelector("body").classList.remove('searching');
+	watchID = navigator.compass.watchHeading(onSuccess, onError, optionsHeading);
+	console.log(watchID + " hideSearch");
+
 	document.querySelector("#search").classList.remove('show');
     document.querySelector("#citySearch").value = "";
+
+
 }

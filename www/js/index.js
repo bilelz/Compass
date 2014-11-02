@@ -18,6 +18,8 @@
  */
 var geocoder;
 var mapType = "ROADMAP";
+var watchID;
+var seaching = false;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -42,17 +44,21 @@ var app = {
         };
 
         document.getElementById('getGeo').onclick = function(){
+            seaching = true;
+            document.querySelector("body").classList.add('searching');
             window.scrollTo(0,0);
             document.querySelector("#search").classList.add('show');
             document.querySelector("#citySearch").focus();
+            navigator.compass.clearWatch(watchID);
+            console.log(watchID + " clearWatch getGeo onclick");
         };
 
         document.getElementById('hideSearch').onclick = function(){
             hideSearch();
         };
 
-        document.getElementById('search').onblur = function(){
-            hideSearch();
+        document.getElementById('citySearch').onblur = function(){
+            //hideSearch();
         };
 
 
@@ -97,7 +103,8 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-		var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+		watchID = navigator.compass.watchHeading(onSuccess, onError, optionsHeading);
+        console.log(watchID + " onDeviceReady watchHeading");
 		navigator.geolocation.getCurrentPosition(onSuccessGeo, onErrorGeo);
 
         document.querySelector("body").classList.remove('notready');
@@ -138,18 +145,21 @@ function onSuccess(heading) {
 //if(headingOld<360 && heading.trueHeading>0)
     
 
-	document.getElementById('compass').style.webkitTransform = "rotate(-"+headingTmp+"deg)";
-    document.getElementById('geoMapInner').style.webkitTransform = "rotate(-"+headingTmp+"deg)";
-    document.getElementById('center').style.webkitTransform = "rotate("+headingTmp+"deg)";
-    document.getElementById('info').style.webkitTransform = "rotate("+headingTmp+"deg)";
+    if(seaching == false){
+        document.getElementById('compass').style.webkitTransform = "rotate(-"+headingTmp+"deg)";
+        document.getElementById('geoMapInner').style.webkitTransform = "rotate(-"+headingTmp+"deg)";
+        document.getElementById('center').style.webkitTransform = "rotate("+headingTmp+"deg)";
+        document.getElementById('info').style.webkitTransform = "rotate("+headingTmp+"deg)";
 
-    document.querySelector("#ring > :nth-child(1) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+90)+"deg)";
-    document.querySelector("#ring > :nth-child(46) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+0)+"deg)";
-    document.querySelector("#ring > :nth-child(91) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+270)+"deg)";
-    document.querySelector("#ring > :nth-child(136) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+180)+"deg)";
+        document.querySelector("#ring > :nth-child(1) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+90)+"deg)";
+        document.querySelector("#ring > :nth-child(46) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+0)+"deg)";
+        document.querySelector("#ring > :nth-child(91) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+270)+"deg)";
+        document.querySelector("#ring > :nth-child(136) .compassNumber").style.webkitTransform = "rotate("+(headingTmp+180)+"deg)";
 
-    document.getElementById('headingNumber').innerHTML = parseInt(headingTmp,10) + "°";
+        document.getElementById('headingNumber').innerHTML = parseInt(headingTmp,10) + "°";
 
+    }
+	
 
 
     // pour une meilleur transition entre les valeurs avant et aprés zéro
@@ -162,9 +172,7 @@ function onError(compassError) {
     log('Compass error: ' + compassError.code);
 };
 
-var options = {
-    frequency: 100
-}; // ms
+var optionsHeading = { frequency: 100 }; //ms
 
 
 // onSuccess Callback
