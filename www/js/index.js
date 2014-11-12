@@ -20,9 +20,15 @@ var geocoder;
 var mapType = "ROADMAP";
 var watchID;
 var seaching = false;
+
+window.onresize = function(event) {
+            document.querySelector("body").style.height = window.innerHeight + "px";
+    };
+
 var app = {
     // Application Constructor
     initialize: function() {
+        document.querySelector("body").style.height = window.innerHeight + "px";
         this.bindEvents();
 
         var compassNumber = 0;
@@ -39,7 +45,7 @@ var app = {
                                                         +'</span>';
         }
 
-        document.getElementById('searchLocation').onclick = function(){
+        document.getElementById('searchGeoloc').onclick = function(){
             navigator.geolocation.getCurrentPosition(onSuccessGeo, onErrorGeo);
         };
 
@@ -172,7 +178,7 @@ function onError(compassError) {
     log('Compass error: ' + compassError.code);
 };
 
-var optionsHeading = { frequency: 100 }; //ms
+var optionsHeading = { frequency: 300 }; //ms
 
 
 // onSuccess Callback
@@ -190,7 +196,7 @@ var onSuccessGeo = function(position) {
 												+'Timestamp: '         + position.timestamp                + '<br/>');
 
     geocoder = new google.maps.Geocoder();
-    setCityFromLatLng(position.coords.latitude,position.coords.longitude );
+    setCityFromLatLng(position.coords.latitude,position.coords.longitude , true);
     hideSearch();
 };
 
@@ -202,7 +208,7 @@ function onErrorGeo(error) {
 
 
 
-function setCityFromLatLng(lat,lng){
+function setCityFromLatLng(lat,lng, fromGeoloc){
     document.getElementById('geoCity').href = 'geo:'+lat+','+lng;                           
     document.getElementById('geoLocality').innerHTML = parseFloat(lat).toFixed(2)+','+parseFloat(lng).toFixed(2);  
     document.getElementById('geoCountry').innerHTML = '';    
@@ -213,7 +219,7 @@ function setCityFromLatLng(lat,lng){
 
     initializeMap(lat,lng);
 
-    getCityNameFromGPS(lat,lng);
+    getCityNameFromGPS(lat,lng, fromGeoloc);
 }
 
 function log(txt){

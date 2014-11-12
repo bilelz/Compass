@@ -46,8 +46,8 @@ function initializeMap(lat,lng) {
   //draw great circle
   var geodesicOptions = {
     strokeColor: '#4486F6',
-    strokeOpacity: 1.0,
-    strokeWeight: 3,
+    strokeOpacity: 1,
+    strokeWeight: 2,
     geodesic: true,
     map: map
   };
@@ -73,7 +73,7 @@ function onCenterChanged() {
  }
 
 
- function getCityNameFromGPS(lat,lng){
+ function getCityNameFromGPS(lat,lng, fromGeoloc){
  	var latlng = new google.maps.LatLng(lat, lng);
                         
       geocoder.geocode({'latLng': latlng}, function(results, status) {
@@ -85,9 +85,17 @@ function onCenterChanged() {
                 console.log(arrAddress[index]);
                 if (arrAddress[index].types[0] == "locality") {
                     document.getElementById('geoLocality').innerHTML = arrAddress[index].long_name;
+
+                    if(fromGeoloc){
+                    	document.getElementById('nearCity').innerHTML = arrAddress[index].long_name;
+                    }
+                    
                 }
                 if (arrAddress[index].types[0] == "country") {
                     document.getElementById('geoCountry').innerHTML = arrAddress[index].long_name;
+                    if(fromGeoloc){
+                    	document.getElementById('nearCountry').innerHTML = ", "+arrAddress[index].long_name;
+                    }
                 }
             }
           } else {
